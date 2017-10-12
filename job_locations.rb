@@ -1,3 +1,26 @@
+
+my_hash = Hash.new
+another_hash = Hash.new
+collision = 0
+
+arr = [1, 3, 22, 27, 121, 256]
+
+arr.each do |v|
+  hv = v % 11
+  another_hash = {hv => v}
+  if my_hash.include?(hv)
+    collision += 1
+  end
+  my_hash.merge!(another_hash)
+end
+
+puts "collision count: #{collision}"
+p my_hash
+
+puts
+puts "#" * 50
+puts
+
 # E1. Given the following hash, write a program that outputs the jobs located in Ultimo.
 #
 job_locations = {
